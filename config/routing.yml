@@ -1,0 +1,117 @@
+album_list:
+  url:   /album
+  param: { module: album, action: list }
+
+album_list_member:
+  url:     /album/listMember/:id
+  class:   sfDoctrineRoute
+  param: { module: album, action: listMember }
+  requirements: { id: '\d+' }
+  options: { model: Member, type: object }
+
+album_list_mine:
+  url: /album/listMember
+  param: { module: album, action: listMember }
+
+album_list_friend:
+  url: /album/listFriend
+  param: { module: album, action: listFriend }
+
+album_new:
+  url: /album/new
+  param: { module: album, action: new }
+
+album_show:
+  url: /album/:id
+  class:   sfDoctrineRoute
+  param: { module: album, action: show }
+  requirements: { id: '\d+' }
+  options: { model: Album, type: object }
+
+album_create_confirm:
+  url: /album/createConfirm/:id
+  class: sfRequestRoute
+  param: { module: album, action: createConfirm }
+  options: { model: Album, type: object }
+
+album_create:
+  url: /album/create
+  class: sfRequestRoute
+  param: { module: album, action: create }
+  requirements: { sf_method: [post] }
+
+album_edit:
+  url: /album/edit/:id
+  class: sfDoctrineRoute
+  param: { module: album, action: edit }
+  requirements: { id: '\d+' }
+  options: { model: Album, type: object }
+
+album_update:
+  url: /album/update/:id
+  class: sfDoctrineRoute
+  param: { module: album, action: update }
+  requirements: { id: '\d+', sf_method: [post] }
+  options: { model: Album, type: object }
+
+album_delete_confirm:
+  url: /album/deleteConfirm/:id
+  class: sfDoctrineRoute
+  param: { module: album, action: deleteConfirm }
+  requirements: { id: '\d+' }
+  options: { model: Album, type: object }
+
+album_delete:
+  url: /album/delete/:id
+  class: sfDoctrineRoute
+  param: { module: album, action: delete }
+  requirements: { id: '\d+', sf_method: [post] }
+  options: { model: Album, type: object }
+
+# album image
+
+album_image_add:
+  url: /album/:id/photo/add
+  class: sfDoctrineRoute
+  param: { module: albumImage, action: add }
+  requirements: { id: '\d+' }
+  options: { model: Album, type: object }
+
+album_image_insert:
+  url: /album/:id/photo/insert
+  class: sfDoctrineRoute
+  param: { module: albumImage, action: insert }
+  requirements: { id: '\d+', sf_method: [post] }
+  options: { model: Album, type: object }
+
+album_image_show:
+  url: /album/photo/:id
+  class: sfDoctrineRoute
+  param: { module: albumImage, action: show }
+  requirements: { id: '\d+' }
+  options: { model: AlbumImage, type: object }
+
+album_image_edit:
+  url: /album/photo/edit/:id
+  class: sfDoctrineRoute
+  param: { module: albumImage, action: edit }
+  requirements: { id: '\d+' }
+  options: { model: AlbumImage, type: object }
+
+album_image_update:
+  url: /album/photo/update/:id
+  class: sfDoctrineRoute
+  param: { module: albumImage, action: update }
+  requirements: { id: '\d+', sf_method: [post] }
+  options: { model: AlbumImage, type: object }
+
+album_image_delete:
+  url: /album/photo/delete/:id
+  class: sfDoctrineRoute
+  param: { module: albumImage, action: delete }
+  requirements: { id: '\d+', sf_method: [post] }
+  options: { model: AlbumImage, type: object }
+
+album_nodefaults:
+  url: /album/*
+  param: { module: default, action: error }
